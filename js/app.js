@@ -30,6 +30,11 @@ function shuffle(array) {
     return array;
 }
 
+function match() {
+  openCards[0].classList.add('match');
+  openCards[1].classList.add('match');
+  openCards = [];
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
