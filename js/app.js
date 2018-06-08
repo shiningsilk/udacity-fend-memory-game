@@ -42,6 +42,11 @@ function noMatch() {
   openCards = [];
 }
 
+function countMoves() {
+  counter++;
+  moves.innerText = counter;
+}
+
 let flip = function () {
   this.classList.add('open', 'show');
   openCards.push(this);
