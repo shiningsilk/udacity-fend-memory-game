@@ -36,6 +36,12 @@ function match() {
   openCards = [];
 }
 
+function noMatch() {
+  openCards[0].classList.remove('open', 'show');
+  openCards[1].classList.remove('open', 'show');
+  openCards = [];
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
