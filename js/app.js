@@ -42,6 +42,19 @@ function noMatch() {
   openCards = [];
 }
 
+let flip = function () {
+  this.classList.add('open', 'show');
+  openCards.push(this);
+    if (openCards.length === 2) {
+      if (openCards[0].innerHTML === openCards[1].innerHTML) {
+        match();
+      }
+      else {
+        setTimeout(noMatch, 500);
+      }
+    }
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
