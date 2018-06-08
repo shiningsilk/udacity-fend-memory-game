@@ -1,7 +1,12 @@
 /*
  * Create a list that holds all of your cards
  */
-const cards = document.getElementsByClassName('card');
+let cards = Array.from(document.getElementsByClassName('card'));
+
+let openCards = [];
+let restart = document.querySelector('.restart');
+let star = document.querySelectorAll(".fa fa-star");
+let stars = [...star];
 
 /*
  * Display the cards on the page
