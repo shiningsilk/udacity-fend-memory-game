@@ -51,6 +51,7 @@ let flip = function () {
   this.classList.add('open', 'show');
   openCards.push(this);
     if (openCards.length === 2) {
+      countMoves();
       if (openCards[0].innerHTML === openCards[1].innerHTML) {
         match();
       }
