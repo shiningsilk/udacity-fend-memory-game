@@ -17,6 +17,12 @@
  let star = document.querySelectorAll(".fa fa-star");
  let stars = [...star];
 
+
+// timer
+let second = 0;
+let minute = 0;
+let timer = document.querySelector('.timer');
+let time;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -72,19 +78,52 @@ function flip () {
   }
 }
 
-cards.forEach(function(card) {
-  card.addEventListener('click', flip);
-});
 
-restart.addEventListener('click', function() {
+// Timer functions
+// timer functions
+function startTimer() {
+  time = setInterval(timePlayed, 1000);
+}
+
+function timePlayed() {
+   second++;
+   if (second == 60) {
+      minute++;
+      second = 0;
+    }
+  timer.innerHTML = `${minute} mins ${second} secs`;
+}
+
+function stopTimer() {
+  clearInterval(time);
+  second = 0;
+  minute = 0;
+}
+
+
+// Restart game
+function newGame() {
   moves.innerText = 0;
   counter = 0;
+  matchCounter = 0;
+  timer.innerHTML = "0 mins 0 secs";
+  stopTimer();
   shuffle(cards);
   cards.forEach(function(card) {
     card.classList.remove('match', 'show', 'open');
     deck.appendChild(card);
   });
+  deck.addEventListener('click', startTimer, {once:true});
+}
+
+// Play Game
+newGame();
+
+cards.forEach(function(card) {
+  card.addEventListener('click', flip);
 });
+
+restart.addEventListener('click', newGame);
 
 /*
  * set up the event listener for a card. If a card is clicked:
