@@ -23,6 +23,7 @@ let star = document.querySelectorAll(".fa fa-star");
 let stars = [...star];
 
 // modal
+const message = document.querySelector('.hide');
 const finalTime = document.querySelector('.final-time');
 const finalMoves = document.querySelector('.final-moves');
 const finalStars = document.querySelector('.final-stars');
