@@ -13,6 +13,7 @@
  // counter
  const moves = document.querySelector('.moves');
  let counter = 0;
+ let matchCounter;
 
  let star = document.querySelectorAll(".fa fa-star");
  let stars = [...star];
@@ -49,6 +50,10 @@ function match() {
   openCards[0].classList.add('match');
   openCards[1].classList.add('match');
   openCards = [];
+  matchCounter++;
+  if (matchCounter === 8) {
+    stopTimer();
+  }
 }
 
 function noMatch() {
