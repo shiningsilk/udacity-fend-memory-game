@@ -47,7 +47,7 @@ function countMoves() {
   moves.innerText = counter;
 }
 
-let flip = function () {
+function flip () {
   this.classList.add('open', 'show');
   openCards.push(this);
     if (openCards.length === 2) {
@@ -63,6 +63,16 @@ let flip = function () {
 
 cards.forEach(function(card) {
   card.addEventListener('click', flip);
+});
+
+restart.addEventListener('click', function() {
+  moves.innerText = 0;
+  counter = 0;
+  shuffle(cards);
+  cards.forEach(function(card) {
+    card.classList.remove('match', 'show', 'open');
+    deck.appendChild(card);
+  });
 });
 
 /*
