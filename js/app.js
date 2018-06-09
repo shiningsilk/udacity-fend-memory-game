@@ -1,12 +1,21 @@
 /*
  * Create a list that holds all of your cards
  */
-let cards = Array.from(document.getElementsByClassName('card'));
+ // List containing all cards
+ let card = document.getElementsByClassName('card');
+ let cards = [...card];
+ const deck = document.querySelector('.deck');
+ const restart = document.querySelector('.restart');
 
-let openCards = [];
-let restart = document.querySelector('.restart');
-let star = document.querySelectorAll(".fa fa-star");
-let stars = [...star];
+ // Array of open cards
+ let openCards = [];
+
+ // counter
+ const moves = document.querySelector('.moves');
+ let counter = 0;
+
+ let star = document.querySelectorAll(".fa fa-star");
+ let stars = [...star];
 
 /*
  * Display the cards on the page
@@ -48,17 +57,19 @@ function countMoves() {
 }
 
 function flip () {
-  this.classList.add('open', 'show');
   openCards.push(this);
-    if (openCards.length === 2) {
-      countMoves();
-      if (openCards[0].innerHTML === openCards[1].innerHTML) {
-        match();
-      }
-      else {
-        setTimeout(noMatch, 500);
-      }
+  if (openCards.length <= 2) {
+  this.classList.add('open', 'show');
+  }
+  if (openCards.length === 2) {
+    countMoves();
+    if (openCards[0].innerHTML === openCards[1].innerHTML) {
+      match();
     }
+    else {
+      setTimeout(noMatch, 500);
+    }
+  }
 }
 
 cards.forEach(function(card) {
