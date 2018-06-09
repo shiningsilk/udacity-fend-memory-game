@@ -53,6 +53,7 @@ function match() {
   matchCounter++;
   if (matchCounter === 8) {
     stopTimer();
+    modal();
   }
 }
 
