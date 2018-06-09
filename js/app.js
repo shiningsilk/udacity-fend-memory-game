@@ -19,8 +19,10 @@ let timer = document.querySelector('.timer');
 let time;
 
 // ratings
-let star = document.querySelectorAll(".fa fa-star");
-let stars = [...star];
+let stars = 3;
+let starOne = document.getElementById('star-one');
+let starTwo = document.getElementById('star-two');
+let starThree = document.getElementById('star-three');
 
 // modal
 const message = document.querySelector('.hide');
@@ -65,10 +67,26 @@ function noMatch() {
   openCards = [];
 }
 
-// moves
+// count moves
 function countMoves() {
   counter++;
   moves.innerText = counter;
+}
+
+// remove stars
+function removeStars() {
+  if (counter > 8) {
+    starOne.style.display = 'none';
+    stars = 2;
+   }
+  if (counter > 16) {
+    starTwo.style.display = 'none';
+    stars = 1;
+  }
+  if (counter > 24) {
+    starThree.style.display = 'none';
+    stars = 0;
+  }
 }
 
 // flip and check for matches
@@ -78,13 +96,14 @@ function flip () {
   this.classList.add('open', 'show', 'disabled');
   }
   if (openCards.length === 2) {
-    countMoves();
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
       match();
     }
     else {
       setTimeout(noMatch, 500);
     }
+    countMoves();
+    removeStars();
   }
 }
 
