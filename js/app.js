@@ -7,7 +7,7 @@ let openCards = [];
 // reset
 const restart = document.querySelector('.restart');
 
-// counter
+// counters
 const moves = document.querySelector('.moves');
 let counter = 0;
 let matchCounter;
@@ -21,6 +21,13 @@ let time;
 // ratings
 let star = document.querySelectorAll(".fa fa-star");
 let stars = [...star];
+
+// modal
+const finalTime = document.querySelector('.final-time');
+const finalMoves = document.querySelector('.final-moves');
+const finalStars = document.querySelector('.final-stars');
+const close = document.querySelector('.close');
+const playAgain = document.querySelector('.play-again');
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -105,18 +112,37 @@ function newGame() {
   moves.innerText = 0;
   counter = 0;
   matchCounter = 0;
+
   // reset timer
   stopTimer();
   timer.innerHTML = "0 mins 0 secs";
+
   // shuffle
   shuffle(cards);
   cards.forEach(function(card) {
     card.classList.remove('match', 'show', 'open');
     deck.appendChild(card);
   });
-  // start timer 
+
+  // start timer
   deck.addEventListener('click', startTimer, {once:true});
 }
+
+// Modal
+function modal() {
+  message.classList.toggle('hide');
+  finalMoves.innerText = counter;
+  finalTime.innerHTML = timer.innerHTML;
+  close.addEventListener('click', function() {
+    message.classList.toggle('hide');
+    });
+  playAgain.addEventListener('click', function() {
+    message.classList.toggle('hide');
+    newGame();
+});
+}
+
+
 
 // Play Game
 newGame();
