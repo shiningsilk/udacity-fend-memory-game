@@ -60,8 +60,8 @@ function match() {
 
 // cards don't match
 function noMatch() {
-  openCards[0].classList.remove('open', 'show');
-  openCards[1].classList.remove('open', 'show');
+  openCards[0].classList.remove('open', 'show', 'disabled');
+  openCards[1].classList.remove('open', 'show', 'disabled');
   openCards = [];
 }
 
@@ -75,7 +75,7 @@ function countMoves() {
 function flip () {
   openCards.push(this);
   if (openCards.length <= 2) {
-  this.classList.add('open', 'show');
+  this.classList.add('open', 'show', 'disabled');
   }
   if (openCards.length === 2) {
     countMoves();
@@ -114,18 +114,15 @@ function newGame() {
   moves.innerText = 0;
   counter = 0;
   matchCounter = 0;
-
   // reset timer
   stopTimer();
   timer.innerHTML = "0 mins 0 secs";
-
   // shuffle
   shuffle(cards);
   cards.forEach(function(card) {
-    card.classList.remove('match', 'show', 'open');
+    card.classList.remove('match', 'show', 'open', 'disabled');
     deck.appendChild(card);
   });
-
   // start timer
   deck.addEventListener('click', startTimer, {once:true});
 }
@@ -135,16 +132,18 @@ function modal() {
   message.classList.toggle('hide');
   finalMoves.innerText = counter;
   finalTime.innerHTML = timer.innerHTML;
-  close.addEventListener('click', function() {
-    message.classList.toggle('hide');
-    });
-  playAgain.addEventListener('click', function() {
-    message.classList.toggle('hide');
-    newGame();
-});
+
+
 }
 
+playAgain.addEventListener('click', function() {
+  message.classList.toggle('hide');
+  newGame();
+});
 
+close.addEventListener('click', function() {
+  message.classList.toggle('hide');
+  });
 
 // Play Game
 newGame();

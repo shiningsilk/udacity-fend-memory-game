@@ -81,6 +81,10 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.disabled {
+  pointer-events: none;
+}
+
 /*
  * Styles for the Score Panel
  */
@@ -128,7 +132,7 @@ h1 {
 
 .modal-content {
   background-color: #fff;
-  margin: 25% auto;
+  margin: 20% auto;
   padding: 20px;
   text-align: center;
 }
@@ -136,7 +140,7 @@ h1 {
 .close {
   color: #666;
   float: right;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
 }
 
