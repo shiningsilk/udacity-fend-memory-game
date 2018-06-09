@@ -1,35 +1,27 @@
-/*
- * Create a list that holds all of your cards
- */
- // List containing all cards
- let card = document.getElementsByClassName('card');
- let cards = [...card];
- const deck = document.querySelector('.deck');
- const restart = document.querySelector('.restart');
+// cards
+const deck = document.querySelector('.deck');
+let card = document.getElementsByClassName('card');
+let cards = [...card];
+let openCards = [];
 
- // Array of open cards
- let openCards = [];
+// reset
+const restart = document.querySelector('.restart');
 
- // counter
- const moves = document.querySelector('.moves');
- let counter = 0;
- let matchCounter;
-
- let star = document.querySelectorAll(".fa fa-star");
- let stars = [...star];
-
+// counter
+const moves = document.querySelector('.moves');
+let counter = 0;
+let matchCounter;
 
 // timer
 let second = 0;
 let minute = 0;
 let timer = document.querySelector('.timer');
 let time;
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+
+// ratings
+let star = document.querySelectorAll(".fa fa-star");
+let stars = [...star];
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -46,6 +38,7 @@ function shuffle(array) {
     return array;
 }
 
+// cards match
 function match() {
   openCards[0].classList.add('match');
   openCards[1].classList.add('match');
@@ -56,17 +49,20 @@ function match() {
   }
 }
 
+// cards don't match
 function noMatch() {
   openCards[0].classList.remove('open', 'show');
   openCards[1].classList.remove('open', 'show');
   openCards = [];
 }
 
+// moves
 function countMoves() {
   counter++;
   moves.innerText = counter;
 }
 
+// flip and check for matches
 function flip () {
   openCards.push(this);
   if (openCards.length <= 2) {
@@ -83,8 +79,6 @@ function flip () {
   }
 }
 
-
-// Timer functions
 // timer functions
 function startTimer() {
   time = setInterval(timePlayed, 1000);
@@ -105,19 +99,22 @@ function stopTimer() {
   minute = 0;
 }
 
-
-// Restart game
+// Reset game
 function newGame() {
+  // reset moves
   moves.innerText = 0;
   counter = 0;
   matchCounter = 0;
-  timer.innerHTML = "0 mins 0 secs";
+  // reset timer
   stopTimer();
+  timer.innerHTML = "0 mins 0 secs";
+  // shuffle
   shuffle(cards);
   cards.forEach(function(card) {
     card.classList.remove('match', 'show', 'open');
     deck.appendChild(card);
   });
+  // start timer 
   deck.addEventListener('click', startTimer, {once:true});
 }
 
