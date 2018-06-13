@@ -132,7 +132,7 @@ h1 {
 
 .modal-content {
   background-color: #fff;
-  margin: 20% auto;
+  margin: 15% auto;
   padding: 20px;
   text-align: center;
 }
@@ -141,7 +141,7 @@ h1 {
   color: #666;
   float: right;
   font-size: 28px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .close:hover,

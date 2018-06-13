@@ -1,36 +1,22 @@
-// cards
 const deck = document.querySelector('.deck');
 let card = document.getElementsByClassName('card');
 let cards = [...card];
 let openCards = [];
 
-// reset
-const restart = document.querySelector('.restart');
-
-// counters
 const moves = document.querySelector('.moves');
 let counter = 0;
-let matchCounter;
+let matchCounter = 0;
 
-// timer
 let second = 0;
 let minute = 0;
 let timer = document.querySelector('.timer');
 let time;
 
-// ratings
-let stars = 3;
-let starOne = document.getElementById('star-one');
-let starTwo = document.getElementById('star-two');
-let starThree = document.getElementById('star-three');
+let star = document.getElementsByClassName('fa fa-star');
+let stars = [...star];
+let starsTotal = 3
 
-// modal
-const message = document.querySelector('.hide');
-const finalTime = document.querySelector('.final-time');
-const finalMoves = document.querySelector('.final-moves');
-const finalStars = document.querySelector('.final-stars');
-const close = document.querySelector('.close');
-const playAgain = document.querySelector('.play-again');
+const message = document.querySelector('.modal');
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -76,16 +62,12 @@ function countMoves() {
 // remove stars
 function removeStars() {
   if (counter > 8) {
-    starOne.style.display = 'none';
-    stars = 2;
+    stars[0].style.display = 'none';
+    starsTotal = 2;
    }
   if (counter > 16) {
-    starTwo.style.display = 'none';
-    stars = 1;
-  }
-  if (counter > 24) {
-    starThree.style.display = 'none';
-    stars = 0;
+    stars[1].style.display = 'none';
+    starsTotal = 1;
   }
 }
 
@@ -149,20 +131,19 @@ function newGame() {
 // Modal
 function modal() {
   message.classList.toggle('hide');
-  finalMoves.innerText = counter;
-  finalTime.innerHTML = timer.innerHTML;
-
-
+  document.querySelector('.final-moves').innerText = counter;
+  document.querySelector('.final-time').innerHTML = timer.innerHTML;
+  document.querySelector('.final-stars').innerHTML = stars;
 }
 
-playAgain.addEventListener('click', function() {
+document.querySelector('.play-again').addEventListener('click', function() {
   message.classList.toggle('hide');
   newGame();
 });
 
-close.addEventListener('click', function() {
+document.querySelector('.close').addEventListener('click', function() {
   message.classList.toggle('hide');
-  });
+});
 
 // Play Game
 newGame();
@@ -171,7 +152,7 @@ cards.forEach(function(card) {
   card.addEventListener('click', flip);
 });
 
-restart.addEventListener('click', newGame);
+document.querySelector('.restart').addEventListener('click', newGame);
 
 /*
  * set up the event listener for a card. If a card is clicked:
