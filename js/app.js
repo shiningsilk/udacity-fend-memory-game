@@ -48,8 +48,9 @@ function match() {
 
 // cards don't match
 function noMatch() {
-  openCards[0].classList.remove('open', 'show', 'disabled');
-  openCards[1].classList.remove('open', 'show', 'disabled');
+  openCards.forEach(function(card) {
+    card.classList.remove('open', 'show', 'disabled');
+  });
   openCards = [];
 }
 
