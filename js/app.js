@@ -114,14 +114,17 @@ function stopTimer() {
 
 // Reset game
 function newGame() {
-  // reset moves
+  // reset score
   moves.innerText = 0;
   counter = 0;
   matchCounter = 0;
+  starsTotal = 3;
+  stars[0].style.display = 'inline-block';
+  stars[1].style.display = 'inline-block';
   // reset timer
   stopTimer();
   timer.innerHTML = "0:00";
-  // shuffle
+  // shuffle cards and add to deck
   shuffle(cards);
   cards.forEach(function(card) {
     card.classList.remove('match', 'show', 'open', 'disabled');
