@@ -96,11 +96,14 @@ function startTimer() {
 
 function timePlayed() {
    second++;
+   if (second < 10) {
+     second = `0${second}`;
+   }
    if (second == 60) {
       minute++;
-      second = 0;
+      second = '00';
     }
-  timer.innerHTML = `${minute} mins ${second} secs`;
+  timer.innerHTML = `${minute}:${second}`;
 }
 
 function stopTimer() {
@@ -117,7 +120,7 @@ function newGame() {
   matchCounter = 0;
   // reset timer
   stopTimer();
-  timer.innerHTML = "0 mins 0 secs";
+  timer.innerHTML = "0:00";
   // shuffle
   shuffle(cards);
   cards.forEach(function(card) {
@@ -133,7 +136,7 @@ function modal() {
   message.classList.toggle('hide');
   document.querySelector('.final-moves').innerText = counter;
   document.querySelector('.final-time').innerHTML = timer.innerHTML;
-  document.querySelector('.final-stars').innerHTML = stars;
+  document.querySelector('.final-stars').innerHTML = starsTotal;
 }
 
 document.querySelector('.play-again').addEventListener('click', function() {
