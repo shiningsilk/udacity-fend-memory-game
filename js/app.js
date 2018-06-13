@@ -64,12 +64,16 @@ function countMoves() {
 // remove stars
 function removeStars() {
   if (counter > 8) {
-    stars[0].style.display = 'none';
+    stars[0].classList.replace('fa', 'far');
     starsTotal = 2;
    }
   if (counter > 16) {
-    stars[1].style.display = 'none';
+    stars[1].classList.replace('fa', 'far');
     starsTotal = 1;
+  }
+  if (counter > 24) {
+    stars[2].classList.replace('fa', 'far');
+    starsTotal = 0;
   }
 }
 
@@ -122,7 +126,7 @@ function newGame() {
   matchCounter = 0;
   starsTotal = 3;
   stars.forEach(function(star) {
-    star.style.display = 'inline-block';
+    star.classList.replace('far', 'fa');
   });
   // reset timer
   stopTimer();
