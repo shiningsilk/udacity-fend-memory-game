@@ -36,8 +36,9 @@ function shuffle(array) {
 
 // cards match
 function match() {
-  openCards[0].classList.add('match');
-  openCards[1].classList.add('match');
+  openCards.forEach(function(card) {
+    card.classList.add('match');
+  });
   openCards = [];
   matchCounter++;
   if (matchCounter === 8) {
