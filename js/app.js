@@ -119,8 +119,9 @@ function newGame() {
   counter = 0;
   matchCounter = 0;
   starsTotal = 3;
-  stars[0].style.display = 'inline-block';
-  stars[1].style.display = 'inline-block';
+  stars.forEach(function(star) {
+    star.style.display = 'inline-block';
+  });
   // reset timer
   stopTimer();
   timer.innerHTML = "0:00";
