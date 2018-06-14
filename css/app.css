@@ -33,9 +33,7 @@ h1 {
     font-weight: 300;
 }
 
-/*
- * Styles for the deck of cards
- */
+/* Deck */
 
 .deck {
     width: 660px;
@@ -73,6 +71,7 @@ h1 {
 
 .deck .card.show {
     font-size: 40px;
+    pointer-events: none;
 }
 
 .deck .card.match {
@@ -81,13 +80,8 @@ h1 {
     font-size: 40px;
 }
 
-.deck .card.disabled {
-  pointer-events: none;
-}
 
-/*
- * Styles for the Score Panel
- */
+/* Score panel */
 
 .score-panel {
     text-align: left;
@@ -114,9 +108,7 @@ h1 {
     cursor: pointer;
 }
 
-/*
-* Styles for the modal
-*/
+/* Modal */
 
 .modal {
   background-color: #fff;
@@ -152,6 +144,8 @@ h1 {
   color: #000;
   text-decoration: none;
 }
+
+/* Responsive  */
 
 @media screen and (max-width: 700px) {
   .deck {

@@ -34,27 +34,6 @@ function shuffle(array) {
     return array;
 }
 
-// cards match
-function match() {
-  openCards.forEach(function(card) {
-    card.classList.add('match');
-  });
-  openCards = [];
-  matchCounter++;
-  if (matchCounter === 8) {
-    stopTimer();
-    setTimeout(modal, 500);
-  }
-}
-
-// cards don't match
-function noMatch() {
-  openCards.forEach(function(card) {
-    card.classList.remove('open', 'show', 'disabled');
-  });
-  openCards = [];
-}
-
 // count moves
 function countMoves() {
   counter++;
@@ -77,17 +56,37 @@ function removeStars() {
   }
 }
 
+// cards match
+function match() {
+  openCards.forEach(function(card) {
+    card.classList.add('match');
+  });
+  openCards = [];
+  matchCounter++;
+  if (matchCounter === 8) {
+    stopTimer();
+    setTimeout(modal, 500);
+  }
+}
+
+// cards don't match
+function noMatch() {
+  openCards.forEach(function(card) {
+    card.classList.remove('open', 'show');
+  });
+  openCards = [];
+}
+
 // flip and check for matches
 function flip () {
   openCards.push(this);
   if (openCards.length <= 2) {
-  this.classList.add('open', 'show', 'disabled');
+  this.classList.add('open', 'show');
   }
   if (openCards.length === 2) {
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
       match();
-    }
-    else {
+    } else {
       setTimeout(noMatch, 500);
     }
     countMoves();
@@ -134,7 +133,7 @@ function newGame() {
   // shuffle cards and add to deck
   shuffle(cards);
   cards.forEach(function(card) {
-    card.classList.remove('match', 'show', 'open', 'disabled');
+    card.classList.remove('match', 'show', 'open');
     deck.appendChild(card);
   });
   // start timer
