@@ -1,9 +1,10 @@
-# Memory Game Project
+# Memory Game
 
 ## Table of Contents
 
 * [Objective](#objective)
 * [Instructions](#instructions)
+* [Bugs](#bugs)
 
 ## Objective
 
@@ -15,8 +16,12 @@ Begin the game and start the timer by clicking on a card to flip it. Flip anothe
 
 Matched cards stay flipped and change color. Unmatched cards turn over.
 
-Flipping two cards is one move. Stars are lost after every ten moves.
+Flipping two cards is one move. Stars are lost after every twelve moves.
 
 Start a new game at any time by clicking the reset button in the score panel.
 
 The game ends when all sixteen cards have been matched. The number of moves, game time, and number of stars earned will be displayed.   
+
+## Bugs
+
+Report any bugs by emailing kaeriellym@gmail.com

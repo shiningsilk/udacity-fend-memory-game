@@ -40,23 +40,23 @@ function countMoves() {
   moves.innerText = counter;
 }
 
-// remove stars
+// Remove stars
 function removeStars() {
-  if (counter > 10) {
+  if (counter > 12) {
     stars[0].classList.replace('fas', 'far');
     starsTotal = 2;
    }
-  if (counter > 20) {
+  if (counter > 24) {
     stars[1].classList.replace('fas', 'far');
     starsTotal = 1;
   }
-  if (counter > 30) {
+  if (counter > 36) {
     stars[2].classList.replace('fas', 'far');
     starsTotal = 0;
   }
 }
 
-// cards match
+// Cards match
 function match() {
   openCards.forEach(function(card) {
     card.classList.add('match');
@@ -69,7 +69,7 @@ function match() {
   }
 }
 
-// cards don't match
+// Cards don't match
 function noMatch() {
   openCards.forEach(function(card) {
     card.classList.remove('open', 'show');
@@ -77,7 +77,7 @@ function noMatch() {
   openCards = [];
 }
 
-// flip and check for matches
+// Flip and check for matches
 function flip () {
   openCards.push(this);
   if (openCards.length <= 2) {
@@ -94,7 +94,7 @@ function flip () {
   }
 }
 
-// timer functions
+// Timer
 function startTimer() {
   time = setInterval(timePlayed, 1000);
 }
@@ -119,7 +119,7 @@ function stopTimer() {
 
 // Reset game
 function newGame() {
-  // reset score
+  // Reset score
   moves.innerText = 0;
   counter = 0;
   matchCounter = 0;
@@ -127,16 +127,16 @@ function newGame() {
   stars.forEach(function(star) {
     star.classList.replace('far', 'fas');
   });
-  // reset timer
+  // Reset timer
   stopTimer();
   timer.innerHTML = "0:00";
-  // shuffle cards and add to deck
+  // Shuffle cards and add to deck
   shuffle(cards);
   cards.forEach(function(card) {
     card.classList.remove('match', 'show', 'open');
     deck.appendChild(card);
   });
-  // start timer
+  // Start timer
   deck.addEventListener('click', startTimer, {once:true});
 }
 
@@ -165,14 +165,3 @@ cards.forEach(function(card) {
 });
 
 document.querySelector('.restart').addEventListener('click', newGame);
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
