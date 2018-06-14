@@ -42,15 +42,15 @@ function countMoves() {
 
 // remove stars
 function removeStars() {
-  if (counter > 8) {
+  if (counter > 10) {
     stars[0].classList.replace('fas', 'far');
     starsTotal = 2;
    }
-  if (counter > 16) {
+  if (counter > 20) {
     stars[1].classList.replace('fas', 'far');
     starsTotal = 1;
   }
-  if (counter > 24) {
+  if (counter > 30) {
     stars[2].classList.replace('fas', 'far');
     starsTotal = 0;
   }
