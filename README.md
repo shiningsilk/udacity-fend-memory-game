@@ -8,7 +8,7 @@
 
 ## Objective
 
-Match eight pairs of cards in as few moves as possible to earn three stars.  
+Match 8 pairs of cards in as few moves as possible to earn three stars.  
 
 ## Instructions  
 
@@ -16,11 +16,11 @@ Begin the game and start the timer by clicking on a card to flip it. Flip anothe
 
 Matched cards stay flipped and change color. Unmatched cards turn over.
 
-Flipping two cards is one move. Stars are lost after every twelve moves.
+Flipping 2 cards is one move. Stars decrease after 16, 24, and 32 moves.
 
 Start a new game at any time by clicking the reset button in the score panel.
 
-The game ends when all sixteen cards have been matched. The number of moves, game time, and number of stars earned will be displayed.   
+The game ends when all 16 cards have been matched. The number of moves, game time, and number of stars earned will be displayed.   
 
 ## Bugs
 
