@@ -50,10 +50,6 @@ function removeStars() {
     stars[1].classList.replace('fas', 'far');
     starsTotal = 1;
   }
-  if (counter > 32) {
-    stars[2].classList.replace('fas', 'far');
-    starsTotal = 0;
-  }
 }
 
 // Cards match
@@ -130,6 +126,8 @@ function newGame() {
   // Reset timer
   stopTimer();
   timer.innerHTML = "0:00";
+  // Clear open cards
+  openCards = [];
   // Shuffle cards and add to deck
   shuffle(cards);
   cards.forEach(function(card) {
