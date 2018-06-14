@@ -12,7 +12,7 @@ let minute = 0;
 let timer = document.querySelector('.timer');
 let time;
 
-let star = document.getElementsByClassName('fa fa-star');
+let star = document.getElementsByClassName('fas fa-star');
 let stars = [...star];
 let starsTotal = 3
 
@@ -64,15 +64,15 @@ function countMoves() {
 // remove stars
 function removeStars() {
   if (counter > 8) {
-    stars[0].classList.replace('fa', 'far');
+    stars[0].classList.replace('fas', 'far');
     starsTotal = 2;
    }
   if (counter > 16) {
-    stars[1].classList.replace('fa', 'far');
+    stars[1].classList.replace('fas', 'far');
     starsTotal = 1;
   }
   if (counter > 24) {
-    stars[2].classList.replace('fa', 'far');
+    stars[2].classList.replace('fas', 'far');
     starsTotal = 0;
   }
 }
@@ -126,7 +126,7 @@ function newGame() {
   matchCounter = 0;
   starsTotal = 3;
   stars.forEach(function(star) {
-    star.classList.replace('far', 'fa');
+    star.classList.replace('far', 'fas');
   });
   // reset timer
   stopTimer();
