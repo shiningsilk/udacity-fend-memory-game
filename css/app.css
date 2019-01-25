@@ -1,115 +1,129 @@
 html {
-    box-sizing: border-box;
-}
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
-}
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
-}
+  background: #ffffff url("../img/crossword.png");
+  /* Background pattern from Subtle Patterns */
+  font-family: 'Lato', sans-serif; }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
 }
 
 /* Deck */
-
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
-}
+  width: 660px;
+  min-height: 680px;
+  background: linear-gradient(160deg, #f8f8f8 0%, #003f5a 100%);
+  padding: 32px;
+  border-radius: 10px;
+  -webkit-box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+          box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 3em; }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-}
+  height: 125px;
+  width: 125px;
+  background: #2e3d49;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+          box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5); }
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
-}
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  background: #007a7a;
+  cursor: default; }
 
 .deck .card.show {
-    font-size: 40px;
-    pointer-events: none;
-}
+  font-size: 40px;
+  pointer-events: none; }
 
 .deck .card.match {
-    cursor: default;
-    background: #02ccba;
-    font-size: 40px;
-}
-
+  cursor: default;
+  background: #fea02f;
+  font-size: 40px; }
 
 /* Score panel */
-
 .score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-}
+  text-align: left;
+  width: 345px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0; }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-}
+  list-style: none;
+  display: inline-block; }
 
 .score-panel .restart {
-    float: right;
-    cursor: pointer;
-}
+  float: right;
+  cursor: pointer; }
 
 /* Modal */
-
 .modal {
   background-color: #fff;
   height: 100%;
@@ -117,58 +131,44 @@ h1 {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
-}
+  z-index: 1; }
 
 .hide {
-   display: none;
-}
+  display: none; }
 
 .modal-content {
   background-color: #fff;
   margin: 15% auto;
   padding: 20px;
   text-align: center;
-  width: 80%;
-}
+  width: 80%; }
 
 .close {
   color: #666;
   float: right;
   font-size: 28px;
-  cursor: default;
-}
+  cursor: default; }
 
 .close:hover,
 .close:focus {
   color: #000;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 /* Responsive  */
-
 @media screen and (max-width: 700px) {
   .deck {
     width: 500px;
     padding: 20px;
-    min-height: 520px;
-  }
-
+    min-height: 520px; }
   .deck .card {
     height: 100px;
-    width: 100px;
-  }
-}
+    width: 100px; } }
 
-@media screen and (max-width: 500px ) {
+@media screen and (max-width: 500px) {
   .deck {
     width: 350px;
     min-height: 380px;
-    padding: 15px;
-  }
-
+    padding: 15px; }
   .deck .card {
     height: 75px;
-    width: 75px;
-  }
-}
+    width: 75px; } }

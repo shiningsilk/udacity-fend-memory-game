@@ -29,4 +29,5 @@ Report any bugs by via email.
 ## Code Dependencies   
 
 Font Awesome 5.0 (in head: https://use.fontawesome.com/releases/v5.0.13/css/all.css)
-Google Fonts (in head: https://fonts.googleapis.com/css?family=Coda)
+
+Google Fonts (in head: https://fonts.googleapis.com/css?family=Lato)
