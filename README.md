@@ -24,7 +24,7 @@ The game ends when all 16 cards have been matched. The number of moves, game tim
 
 ## Bugs
 
-Report any bugs by emailing kaeriellym@gmail.com
+Report any bugs by via email.
 
 ## Code Dependencies   
 
