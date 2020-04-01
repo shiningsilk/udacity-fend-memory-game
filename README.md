@@ -1,6 +1,6 @@
 # Memory Game
 
-JavaScript project for a Udacity class. [Play here](https://shiningsilk.github.io/udacity-fend-memory-game/)
+JavaScript project for a Udacity class. [Play here](https://shiningsilk.github.io/udacity-fend-memory-game/).
 
 ## Table of Contents
 
